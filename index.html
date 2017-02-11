@@ -3,33 +3,9 @@
     <head>
         <meta charset="UTF-8" />
         <title>Board Test</title>
-        <script src="/lib/"></script>
+        <script src="/lib/phaser.min.js"></script>
+        <script src="/src/init.js"
     </head>
     <body>
-
-    <script type="text/javascript/phaser.min.js">
-
-    window.onload = function() {
-
-    
-        var game = new Phaser.Game(700, 700, Phaser.AUTO, '', { preload: preload, create: create });
-
-        function preload () {
-
-            game.load.image('board', 'assets/board.jpg');
-
-        }
-
-        function create () {
-
-            var logo = game.add.sprite(game.world.centerX, game.world.centerY, 'board');
-            logo.anchor.setTo(0.5, 0.5);
-
-        }
-
-    };
-
-    </script>
-
     </body>
 </html>
