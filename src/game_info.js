@@ -8,6 +8,7 @@
 */
 
 // Constructor for game_info object
+// hello this is a change
 function Game_info (data) {
         this.board_image   = "/assets/images/board.jpg"
         this.board_x_size  = 1000
