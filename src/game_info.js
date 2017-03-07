@@ -9,9 +9,9 @@
 
 // Constructor for game_info object
 function Game_info (data) {
-        this.board_image   = "/assets/images/board.jpg"
-        this.board_x_size  = 1000
-        this.board_y_size  = 1000
+        this.board_image   = "/assets/images/board.jpg";
+        this.board_x_size  = 1000;
+        this.board_y_size  = 1000;
         this.board_tiles   = [
         // First Row
                 // Tile 1
@@ -118,10 +118,10 @@ function Game_info (data) {
                         "piece_1_y":680
                 },
         ]
-        this.piece_1_image = "/assets/images/pieces/piece1.png"
-        this.piece_2_image = ""
-        this.piece_3_image = ""
-        this.piece_4_image = ""
-        this.piece_5_image = ""
-        this.piece_6_image = ""
+        this.piece_1_image = "/assets/images/pieces/piece1.png";
+        this.piece_2_image = "/assets/images/pieces/piece2.png";
+        this.piece_3_image = "/assets/images/pieces/piece3.png";
+        this.piece_4_image = "/assets/images/pieces/piece4.png";
+        this.piece_5_image = "/assets/images/pieces/piece5.png";
+        this.piece_6_image = "/assets/images/pieces/piece6.png";
 }
