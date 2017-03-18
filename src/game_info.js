@@ -118,6 +118,8 @@ function Game_info (data) {
                         "piece_1_y":680
                 },
         ]
+
+        // Piece Images
         this.piece_1_image = "/assets/images/pieces/piece1.png";
         this.piece_2_image = "/assets/images/pieces/piece2.png";
         this.piece_3_image = "/assets/images/pieces/piece3.png";
