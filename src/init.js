@@ -15,17 +15,21 @@ window.onload = function() {
         }
 
         function preload () {
-                game.load.image('board_image',  game_info.board_image);
+                game.load.image('board_image',   game_info.board_image);
                 game.load.image('piece_1_image', game_info.piece_1_image);
                 game.load.image('piece_2_image', game_info.piece_2_image);
                 game.load.image('piece_3_image', game_info.piece_3_image);
                 game.load.image('piece_4_image', game_info.piece_4_image);
                 game.load.image('piece_5_image', game_info.piece_5_image);
                 game.load.image('piece_6_image', game_info.piece_6_image);
+                game.load.image('logo_image',    game_info.logo_image);
+
         }
 
         function create () {
                 var board = game.add.sprite(game.world.centerX, game.world.centerY, 'board_image');
+               // var logo  = game.add.sprite(game.world.centerX, game.world.centerY,'logo_image');
+                board.anchor.setTo(0.5, 0.5);
 
                 for(var i = 0; i < number_pieces; i++){
                         current_piece_x     = 'piece_'+ (i+1) + '_x';
@@ -33,9 +37,7 @@ window.onload = function() {
                         current_piece_image = 'piece_'+ (i+1) + '_image';  
                         
                         pieces[i] = game.add.sprite(game_info.board_tiles[piece_controlers[i].current_tile][current_piece_x], game_info.board_tiles[piece_controlers[i].current_tile][current_piece_y], current_piece_image);                        
-                }
-
-                board.anchor.setTo(0.5, 0.5);
+                }       
                 leftKey = game.input.keyboard.addKey(Phaser.Keyboard.LEFT);
 
                 // We need to reset these varibles so that they are correctly initalized for update

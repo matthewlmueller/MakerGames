@@ -446,4 +446,6 @@ function Game_info (data) {
         this.piece_4_image = "/assets/images/pieces/piece4.png";
         this.piece_5_image = "/assets/images/pieces/piece5.png";
         this.piece_6_image = "/assets/images/pieces/piece6.png";
+
+        this.logo_image    = "/assets/images/logo.png"; 
 }
