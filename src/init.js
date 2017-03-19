@@ -9,7 +9,6 @@ window.onload = function() {
         }
 
         var game                 = new Phaser.Game(1000, 1000, Phaser.AUTO, '', { preload: preload, create: create, update: update });
-        var current_teams_turn   = 1;
 
         function preload () {
                 game.load.image('board_image',  game_info.board_image);
@@ -25,10 +24,9 @@ window.onload = function() {
                 var board = game.add.sprite(game.world.centerX, game.world.centerY, 'board_image');
 
                 for(var i = 0; i < number_pieces; i++){
-                        current_piece       = 'piece_'+ (i+1) + '_';
-                        current_piece_x     = current_piece + 'x';
-                        current_piece_y     = current_piece + 'y';
-                        current_piece_image = current_piece + 'image';  
+                        current_piece_x     = 'piece_'+ (i+1) + '_x';
+                        current_piece_y     = 'piece_'+ (i+1) + '_y';
+                        current_piece_image = 'piece_'+ (i+1) + '_image';  
                         
                         pieces[i] = game.add.sprite(game_info.board_tiles[piece_controlers[i].current_tile][current_piece_x], game_info.board_tiles[piece_controlers[i].current_tile][current_piece_y], current_piece_image);                        
                 }
@@ -38,10 +36,23 @@ window.onload = function() {
         }
 
         function update () {
+                var current_turn    = 0;
+                var current_piece_x = 'piece_'+ 1 + '_x';
+                var current_piece_y = 'piece_'+ 1 + '_y';
+
+
                 if(leftKey.isDown){
-                        piece_controlers[0].current_tile++;
-                        pieces[0].x = game_info.board_tiles[piece_controlers[0].current_tile].piece_1_x;
-                        pieces[0].y = game_info.board_tiles[piece_controlers[0].current_tile].piece_1_y;
+                        piece_controlers[current_turn].current_tile++;
+                        
+                        if(piece_controlers[current_turn].current_tile == 20){
+                                current_turn++;
+                                current_piece_x = 'piece_'+ (current_turn+1) + '_x';
+                                current_piece_y = 'piece_'+ (current_turn+1) + '_y';
+                        }
+
+                        pieces[current_turn].x = game_info.board_tiles[piece_controlers[current_turn].current_tile][current_piece_x];
+                        pieces[current_turn].y = game_info.board_tiles[piece_controlers[current_turn].current_tile][current_piece_y];
+
                 }
         }
 };

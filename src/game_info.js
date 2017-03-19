@@ -17,12 +17,34 @@ function Game_info (data) {
                 // Tile 1
                 {
                         "piece_1_x":830,
-                        "piece_1_y":825
+                        "piece_1_y":825,
+
+                        "piece_2_x":875,
+                        "piece_2_y":825,
+
+                        "piece_3_x":925,
+                        "piece_3_y":825,
+
+                        "piece_4_x":830,
+                        "piece_4_y":925,
+
+                        "piece_5_x":875,
+                        "piece_5_y":925,
+
+                        "piece_6_x":925,
+                        "piece_6_y":925,
                 },
                 // Tile 2
                 {
                         "piece_1_x":680,
-                        "piece_1_y":825
+                        "piece_1_y":825,
+
+                        "piece_2_x":725,
+                        "piece_2_y":825,
+
+                        "piece_3_x":775,
+                        "piece_3_y":825,
+
                 },
                 // Tile 3
                 {
