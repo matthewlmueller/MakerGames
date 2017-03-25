@@ -447,5 +447,6 @@ function Game_info (data) {
         this.piece_5_image = "/assets/images/pieces/piece5.png";
         this.piece_6_image = "/assets/images/pieces/piece6.png";
 
-        this.logo_image    = "/assets/images/logo.png"; 
+        this.logo_image             = "/assets/images/logo.png";
+        this.dice_roll_button_image = "/assets/images/roll_button.png" 
 }

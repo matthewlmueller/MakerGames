@@ -1,22 +1,50 @@
-function format_time (game_time){
+
+window.onload = function() {
+
+        function format_time (game_time){
         var total_time_seconds = game_time/1000;
         var minutes            = Math.floor(total_time_seconds / 60);
         var seconds            = Math.floor(total_time_seconds) - (60 * minutes);
         var time_string        = (minutes < 10) ? "0" + minutes : minutes; 
         time_string            += (seconds < 10) ? ":0" + seconds : ":" + seconds; 
         return time_string
-}
+        }
 
-function advance_turn (){
-      //  console.log("omg new turn");
-}
+        function advance_turn (){
+              //  console.log("omg new turn");
+        }
 
-// Takes the "size" of the dice (the largest number that can be rolled on it)
-function roll_dice (dice_size){
-        return Math.floor(Math.random() * (dice_size - 1 + 1)) + 1;
-}
+        // Takes the "size" of the dice (the largest number that can be rolled on it)
+        function roll_dice (dice_size){
+                return Math.floor(Math.random() * (dice_size - 1 + 1)) + 1;
+        }
 
-window.onload = function() {
+        function turn(){
+                current_dice_roll = roll_dice(6)
+
+                // Check if the current piece is already on the final tile
+                // If so, they are, they don't need any more turns and we should move on to the next piece
+                
+
+                // Check if the current dice roll would move the piece past the end of the board
+                // If so - just set the current piece's posistion to the final tile
+                if(piece_controlers[current_turn].current_tile + current_dice_roll > 19){
+                        piece_controlers[current_turn].current_tile = 19;
+                } else {
+                        piece_controlers[current_turn].current_tile += current_dice_roll;
+                }
+
+                pieces[current_turn].x = game_info.board_tiles[piece_controlers[current_turn].current_tile][current_piece_x];
+                pieces[current_turn].y = game_info.board_tiles[piece_controlers[current_turn].current_tile][current_piece_y];
+
+                current_turn++;
+                current_piece_x = 'piece_'+ (current_turn+1) + '_x';
+                current_piece_y = 'piece_'+ (current_turn+1) + '_y';
+
+        }
+
+
+
         // Will eventually be imported from the main menu
         var number_pieces    = 6;   // TODO: change me to a more accurate name
         var length_of_turn   = 0.1; // In minutes
@@ -33,6 +61,7 @@ window.onload = function() {
         var board;
         var timer_text;
         var logo;
+        var roll_button;
 
         // Create the correct number of piece controlers
         for(var i = 0; i < number_pieces; i++){
@@ -40,14 +69,15 @@ window.onload = function() {
         }
 
         function preload () {
-                game.load.image('board_image',   game_info.board_image);
-                game.load.image('piece_1_image', game_info.piece_1_image);
-                game.load.image('piece_2_image', game_info.piece_2_image);
-                game.load.image('piece_3_image', game_info.piece_3_image);
-                game.load.image('piece_4_image', game_info.piece_4_image);
-                game.load.image('piece_5_image', game_info.piece_5_image);
-                game.load.image('piece_6_image', game_info.piece_6_image);
-                game.load.image('logo_image',    game_info.logo_image);
+                game.load.image('board_image',      game_info.board_image);
+                game.load.image('piece_1_image',    game_info.piece_1_image);
+                game.load.image('piece_2_image',    game_info.piece_2_image);
+                game.load.image('piece_3_image',    game_info.piece_3_image);
+                game.load.image('piece_4_image',    game_info.piece_4_image);
+                game.load.image('piece_5_image',    game_info.piece_5_image);
+                game.load.image('piece_6_image',    game_info.piece_6_image);
+                game.load.image('logo_image',       game_info.logo_image);
+                game.load.image('dice_roll_button', game_info.dice_roll_button_image);
 
         }
 
@@ -56,6 +86,7 @@ window.onload = function() {
                 timer_text = game.add.text(400,  470, "");
                 logo       = game.add.sprite(275, 200,'logo_image');
                 leftKey = game.input.keyboard.addKey(Phaser.Keyboard.LEFT);
+                roll_button = game.add.button(200, 775, 'dice_roll_button', turn, this);
 
                 logo.scale.setTo(0.3,0.3)
                 board.anchor.setTo(0.5, 0.5);
@@ -80,26 +111,8 @@ window.onload = function() {
                 var time_string       = format_time(game.time.events.duration);
                 var current_dice_roll;
 
-
-
-                if(leftKey.isDown && current_turn < number_pieces){
-                       current_dice_roll = roll_dice(6)
-
-                        if(piece_controlers[current_turn].current_tile + current_dice_roll > 19){
-                                piece_controlers[current_turn].current_tile = 19;
-                        } else {
-                                piece_controlers[current_turn].current_tile += current_dice_roll;
-                        }
-
-                        pieces[current_turn].x = game_info.board_tiles[piece_controlers[current_turn].current_tile][current_piece_x];
-                        pieces[current_turn].y = game_info.board_tiles[piece_controlers[current_turn].current_tile][current_piece_y];
-
-                        if(piece_controlers[current_turn].current_tile == 19){
-                                current_turn++;
-                                current_piece_x = 'piece_'+ (current_turn+1) + '_x';
-                                current_piece_y = 'piece_'+ (current_turn+1) + '_y';
-                        }
-
+                if(current_turn == 6){
+                        current_turn = 0;
                 }
 
                 timer_text.setText("Time Left: " + time_string);
