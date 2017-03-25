@@ -8,7 +8,7 @@ function format_time (game_time){
 }
 
 function advance_turn (){
-        console.log("omg new turn");
+      //  console.log("omg new turn");
 }
 
 // Takes the "size" of the dice (the largest number that can be rolled on it)
@@ -18,7 +18,7 @@ function roll_dice (dice_size){
 
 window.onload = function() {
         // Will eventually be imported from the main menu
-        var number_pieces    = 6; // TODO: change me to a more accurate name
+        var number_pieces    = 6;   // TODO: change me to a more accurate name
         var length_of_turn   = 0.1; // In minutes
 
         var game_info        = new Game_info();
@@ -53,8 +53,9 @@ window.onload = function() {
 
         function create () {
                 board      = game.add.sprite(game.world.centerX, game.world.centerY, 'board_image');
-                timer_text = game.add.text(400,  470, "This is where the time remaining in the current turn should be");
+                timer_text = game.add.text(400,  470, "");
                 logo       = game.add.sprite(275, 200,'logo_image');
+                leftKey = game.input.keyboard.addKey(Phaser.Keyboard.LEFT);
 
                 logo.scale.setTo(0.3,0.3)
                 board.anchor.setTo(0.5, 0.5);
@@ -65,8 +66,8 @@ window.onload = function() {
                         current_piece_image = 'piece_'+ (i+1) + '_image';  
                         
                         pieces[i] = game.add.sprite(game_info.board_tiles[piece_controlers[i].current_tile][current_piece_x], game_info.board_tiles[piece_controlers[i].current_tile][current_piece_y], current_piece_image);                        
-                }       
-                leftKey = game.input.keyboard.addKey(Phaser.Keyboard.LEFT);
+                }     
+
 
                 // We need to reset these varibles so that they are correctly initalized for update
                 current_piece_x = 'piece_'+ 1 + '_x';
@@ -79,21 +80,26 @@ window.onload = function() {
                 var time_string       = format_time(game.time.events.duration);
                 var current_dice_roll;
 
-                if(leftKey.isDown){
-                        console.log(current_dice_roll = roll_dice(6))
-                        if(piece_controlers[current_turn].current_tile += current_dice_roll < 20){
+
+
+                if(leftKey.isDown && current_turn < number_pieces){
+                       current_dice_roll = roll_dice(6)
+
+                        if(piece_controlers[current_turn].current_tile + current_dice_roll > 19){
+                                piece_controlers[current_turn].current_tile = 19;
+                        } else {
                                 piece_controlers[current_turn].current_tile += current_dice_roll;
-                                if(piece_controlers[current_turn].current_tile == 20){ 
-                                        console.log(current_turn)
-                                        current_turn++;
-                                        current_piece_x = 'piece_'+ (current_turn+1) + '_x';
-                                        current_piece_y = 'piece_'+ (current_turn+1) + '_y';
-                                }
                         }
 
-                                pieces[current_turn].x = game_info.board_tiles[piece_controlers[current_turn].current_tile][current_piece_x];
-                                pieces[current_turn].y = game_info.board_tiles[piece_controlers[current_turn].current_tile][current_piece_y];        
-                        
+                        pieces[current_turn].x = game_info.board_tiles[piece_controlers[current_turn].current_tile][current_piece_x];
+                        pieces[current_turn].y = game_info.board_tiles[piece_controlers[current_turn].current_tile][current_piece_y];
+
+                        if(piece_controlers[current_turn].current_tile == 19){
+                                current_turn++;
+                                current_piece_x = 'piece_'+ (current_turn+1) + '_x';
+                                current_piece_y = 'piece_'+ (current_turn+1) + '_y';
+                        }
+
                 }
 
                 timer_text.setText("Time Left: " + time_string);
