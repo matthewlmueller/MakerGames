@@ -1,11 +1,25 @@
+function format_time (game_time){
+        var total_time_seconds = game_time/1000;
+        var minutes            = Math.floor(total_time_seconds / 60);
+        var seconds            = Math.floor(total_time_seconds) - (60 * minutes);
+        var time_string        = (minutes < 10) ? "0" + minutes : minutes; 
+        time_string            += (seconds < 10) ? ":0" + seconds : ":" + seconds; 
+        return time_string
+}
+
 function advance_turn (){
         console.log("omg new turn");
+}
+
+// Takes the "size" of the dice (the largest number that can be rolled on it)
+function roll_dice (dice_size){
+        return Math.floor(Math.random() * (dice_size - 1 + 1)) + 1;
 }
 
 window.onload = function() {
         // Will eventually be imported from the main menu
         var number_pieces    = 6; // TODO: change me to a more accurate name
-        var length_of_turn   = 2; // In minutes
+        var length_of_turn   = 0.1; // In minutes
 
         var game_info        = new Game_info();
         var piece_controlers = [];
@@ -39,7 +53,7 @@ window.onload = function() {
 
         function create () {
                 board      = game.add.sprite(game.world.centerX, game.world.centerY, 'board_image');
-                timer_text = game.add.text(425,  500, "Place holder")
+                timer_text = game.add.text(400,  470, "This is where the time remaining in the current turn should be");
                 logo       = game.add.sprite(275, 200,'logo_image');
 
                 logo.scale.setTo(0.3,0.3)
@@ -62,23 +76,26 @@ window.onload = function() {
         }
 
         function update () {
+                var time_string       = format_time(game.time.events.duration);
+                var current_dice_roll;
+
                 if(leftKey.isDown){
-                        console.log(current_turn)
-                        if(current_turn < number_pieces){
-                                piece_controlers[current_turn].current_tile++;
-                        
+                        console.log(current_dice_roll = roll_dice(6))
+                        if(piece_controlers[current_turn].current_tile += current_dice_roll < 20){
+                                piece_controlers[current_turn].current_tile += current_dice_roll;
                                 if(piece_controlers[current_turn].current_tile == 20){ 
                                         console.log(current_turn)
                                         current_turn++;
                                         current_piece_x = 'piece_'+ (current_turn+1) + '_x';
                                         current_piece_y = 'piece_'+ (current_turn+1) + '_y';
                                 }
+                        }
 
                                 pieces[current_turn].x = game_info.board_tiles[piece_controlers[current_turn].current_tile][current_piece_x];
                                 pieces[current_turn].y = game_info.board_tiles[piece_controlers[current_turn].current_tile][current_piece_y];        
-                        }
-
-                        timer_text.setText("Time Left: " + ((game.time.events.duration/1000)/60).toFixed(2));
+                        
                 }
+
+                timer_text.setText("Time Left: " + time_string);
         }
 }
