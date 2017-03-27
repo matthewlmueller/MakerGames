@@ -447,6 +447,23 @@ function Game_info (data) {
         this.piece_5_image = "/assets/images/pieces/piece5.png";
         this.piece_6_image = "/assets/images/pieces/piece6.png";
 
+        // Other Images
         this.logo_image             = "/assets/images/logo.png";
         this.dice_roll_button_image = "/assets/images/roll_button.png" 
+
+        //Surprise Card Text
+        this.surprise_card_descriptions = [
+                "Build Different - Replace the materials you are using in (part of) your design with other materials, and rebuild",
+                "Build more - Grab one handful of additional materials and add them to your design",
+                "Upside Down - Turn your design upside down. Design a way you could make the prototype work from this orientation.",
+                "Sideways - Turn your design on its side. Design a way you could make the prototype work from this orientation",
+                "Constructive Compliments - Go around to every group and identify one part of their design that you like and why you like it. Tell the team what you like and your reasoning.",
+                "Drop Test - Drop your prototype from one foot off the ground.",
+                "Ad Jingle - Write an advertising jingle about your design.",
+                "One Hand - For the next round of building, each player on the team can contribute only one hand to your prototyping.",
+                "Budget Cuts - Change your design so you can build it for ½ the original costs or amount of materials.",
+                "Storytelling - Write a short story, 3-4 sentences in length, about a potential end-user of your design. (Retain a copy of this story because it may help you write an ad, design a logo, or during presentations)",
+                'One More Thing - Identify the coolest feature of your design.  Create a 30 second pitch for your prototype that convincingly describes your product without mentioning it, then add, “and one more thing . . .”',
+                "Logo - Design and sketch "
+        ]
 }

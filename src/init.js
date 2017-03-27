@@ -19,34 +19,38 @@ window.onload = function() {
         }
 
         function turn(){
-                console.log(current_turn)
-            
-                
-                console.log(pieces)
                 current_dice_roll = roll_dice(6)
 
                 // Check if the current dice roll would move the piece past the end of the board
                 // If so - just set the current piece's posistion to the final tile
-                if(piece_controlers[current_turn].current_tile + current_dice_roll > 19){
+                if(piece_controlers[current_turn].current_tile + current_dice_roll >= 19){
                         piece_controlers[current_turn].current_tile = 19;
                 } else {
                         piece_controlers[current_turn].current_tile += current_dice_roll;
                 }
 
+                if(piece_controlers[current_turn].current_tile == 8 || piece_controlers[current_turn].current_tile == 18){
+                        suprise_text.setText(suprise());
+                }
 
                 pieces[current_turn].x = game_info.board_tiles[piece_controlers[current_turn].current_tile][current_piece_x];
                 pieces[current_turn].y = game_info.board_tiles[piece_controlers[current_turn].current_tile][current_piece_y];
 
                 current_turn++;
                 if(current_turn == 6){
-                    console.log("Time to reset")
                     current_turn = 0;
-                }                
+                }
+
                 current_piece_x = 'piece_'+ (current_turn+1) + '_x';
                 current_piece_y = 'piece_'+ (current_turn+1) + '_y';
 
         }
 
+        function suprise(){
+            console.log(game_info)
+            var suprise_card_index = roll_dice(game_info.surprise_card_descriptions.length-1);
+            return game_info.surprise_card_descriptions[suprise_card_index];
+        }
 
 
         // Will eventually be imported from the main menu
@@ -64,6 +68,7 @@ window.onload = function() {
 
         var board;
         var timer_text;
+        var suprise_text;
         var logo;
         var roll_button;
 
@@ -87,12 +92,15 @@ window.onload = function() {
 
         function create () {
                 board      = game.add.sprite(game.world.centerX, game.world.centerY, 'board_image');
-                timer_text = game.add.text(400,  470, "");
+
+                timer_text   = game.add.text(400,  470, "");
+                suprise_text = game.add.text(75,  670, "");
+
                 logo       = game.add.sprite(275, 200,'logo_image');
                 leftKey = game.input.keyboard.addKey(Phaser.Keyboard.LEFT);
                 roll_button = game.add.button(200, 775, 'dice_roll_button', turn, this);
 
-                logo.scale.setTo(0.3,0.3)
+                logo.scale.setTo(0.3,0.3);
                 board.anchor.setTo(0.5, 0.5);
 
                 for(var i = 0; i < number_pieces; i++){
