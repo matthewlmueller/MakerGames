@@ -1,6 +1,5 @@
 
 window.onload = function() {
-
         function format_time (game_time){
         var total_time_seconds = game_time/1000;
         var minutes            = Math.floor(total_time_seconds / 60);
@@ -20,11 +19,11 @@ window.onload = function() {
         }
 
         function turn(){
-                current_dice_roll = roll_dice(6)
-
-                // Check if the current piece is already on the final tile
-                // If so, they are, they don't need any more turns and we should move on to the next piece
+                console.log(current_turn)
+            
                 
+                console.log(pieces)
+                current_dice_roll = roll_dice(6)
 
                 // Check if the current dice roll would move the piece past the end of the board
                 // If so - just set the current piece's posistion to the final tile
@@ -34,10 +33,15 @@ window.onload = function() {
                         piece_controlers[current_turn].current_tile += current_dice_roll;
                 }
 
+
                 pieces[current_turn].x = game_info.board_tiles[piece_controlers[current_turn].current_tile][current_piece_x];
                 pieces[current_turn].y = game_info.board_tiles[piece_controlers[current_turn].current_tile][current_piece_y];
 
                 current_turn++;
+                if(current_turn == 6){
+                    console.log("Time to reset")
+                    current_turn = 0;
+                }                
                 current_piece_x = 'piece_'+ (current_turn+1) + '_x';
                 current_piece_y = 'piece_'+ (current_turn+1) + '_y';
 
@@ -47,7 +51,7 @@ window.onload = function() {
 
         // Will eventually be imported from the main menu
         var number_pieces    = 6;   // TODO: change me to a more accurate name
-        var length_of_turn   = 0.1; // In minutes
+        var length_of_turn   = 2; // In minutes
 
         var game_info        = new Game_info();
         var piece_controlers = [];
@@ -110,10 +114,6 @@ window.onload = function() {
         function update () {
                 var time_string       = format_time(game.time.events.duration);
                 var current_dice_roll;
-
-                if(current_turn == 6){
-                        current_turn = 0;
-                }
 
                 timer_text.setText("Time Left: " + time_string);
         }
