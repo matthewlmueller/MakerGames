@@ -54,7 +54,7 @@ var board_state = {
         create: function () {
                 board      = game.add.sprite(game.world.centerX, game.world.centerY, 'board_image');
                 timer_text   = game.add.text(400,  470, "");
-                suprise_text = game.add.text(75,  670, "");
+                suprise_text = game.add.text(200,  670, "", game_info.surprise_card_text_box_style);
 
                 logo       = game.add.sprite(275, 200,'logo_image');
                 leftKey = game.input.keyboard.addKey(Phaser.Keyboard.LEFT);

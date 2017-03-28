@@ -453,7 +453,7 @@ function Game_info (data) {
 
         // Other Images
         this.logo_image             = "/assets/images/logo.png";
-        this.dice_roll_button_image = "/assets/images/roll_button.png" 
+        this.dice_roll_button_image = "/assets/images/roll_button.png"; 
 
         //Surprise Card Text
         this.surprise_card_descriptions = [
@@ -469,5 +469,8 @@ function Game_info (data) {
                 "Storytelling - Write a short story, 3-4 sentences in length, about a potential end-user of your design. (Retain a copy of this story because it may help you write an ad, design a logo, or during presentations)",
                 'One More Thing - Identify the coolest feature of your design.  Create a 30 second pitch for your prototype that convincingly describes your product without mentioning it, then add, “and one more thing . . .”',
                 "Logo - Design and sketch "
-        ]
+        ];
+
+        this.surprise_card_text_box_style = {font:"14px Arial"};
+
 }
