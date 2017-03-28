@@ -9,6 +9,9 @@
 
 // Constructor for game_info object
 function Game_info (data) {
+        this.turn_length_prompt_text  = "How long should each turn be (In minutes, cannot be 0?)";
+        this.number_teams_primpt_text = "How many teams will there be(Minimum 1, Maximum 6)?" 
+
         this.board_image   = "/assets/images/board.jpg";
         this.board_x_size  = 1000;
         this.board_y_size  = 1000;
