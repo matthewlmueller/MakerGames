@@ -1,7 +1,9 @@
 var game       = new Phaser.Game(1000, 1000, Phaser.AUTO, '');
 var game_info  = new Game_info();
-var turn_length  = 0;
-var number_teams = 0;
+
+var turn_length       = 0;
+var number_teams      = 0;
+var number_dice_sides = 0;
 
 var piece_controlers = [];
 var pieces           = [];

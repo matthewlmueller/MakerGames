@@ -6,10 +6,14 @@ var menu_state = {
 		} 
 
 		while (number_teams <= 0){
-			number_teams = prompt(game_info.number_teams_primpt_text);
+			number_teams = prompt(game_info.number_teams_prompt_text);
 			if(number_teams > 6){
 				number_teams = 0;
 			}
+		}
+
+		while (number_dice_sides <= 0){
+			number_dice_sides = prompt(game_info.number_dice_sides_prompt_text)
 		}
 
 		game.state.start('board')	
