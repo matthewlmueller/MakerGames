@@ -54,7 +54,7 @@ function suprise () {
 function update_turn_indicator () {
         console.log("called");
         var current_piece_image = 'piece_'+ (current_turn+1) + '_image';
-        var current_team_piece = game.add.sprite(500, 375, current_piece_image);
+        var current_team_piece = game.add.sprite(500, 425, current_piece_image);
         var other_team_pieces  = [];
         var starting_x_pos     = 450;
 
@@ -67,7 +67,7 @@ function update_turn_indicator () {
 
                 console.log("adding a sprite")
                 current_piece_image = 'piece_'+ (i+1) + '_image';
-                other_team_pieces.push(game.add.sprite(starting_x_pos, 425, current_piece_image));
+                other_team_pieces.push(game.add.sprite(starting_x_pos, 475, current_piece_image));
                 starting_x_pos += 25;
 
         }
@@ -78,7 +78,7 @@ var board_state = {
         create: function () {
                 board      = game.add.sprite(game.world.centerX, game.world.centerY, 'board_image');
                 logo       = game.add.sprite(275, 200,'logo_image');
-                timer_text   = game.add.text(400,  470, "");
+                timer_text   = game.add.text(400,  570, "");
                 suprise_text = game.add.text(200,  670, "", game_info.surprise_card_text_box_style);
                 roll_button = game.add.button(200, 775, 'dice_roll_button', turn, this);
                 logo.scale.setTo(0.3,0.3);
