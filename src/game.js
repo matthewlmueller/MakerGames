@@ -12,7 +12,10 @@ var current_turn     = 0;
 var current_piece_x;
 var current_piece_y;
 
+var first_turn_taken = 0;
+
 var board;
+var timer;
 var timer_text;
 var suprise_text;
 var logo;

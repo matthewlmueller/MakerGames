@@ -1,5 +1,8 @@
 function turn(){
-        current_dice_roll = roll_dice(number_dice_sides)
+        first_turn_taken = 1;
+        //timer.destory();
+        //timer = game.time.events.add(Phaser.Timer.MINUTE * turn_length, advance_turn, this);
+        current_dice_roll = roll_dice(number_dice_sides);
 
         // Check if the current dice roll would move the piece past the end of the board
         // If so - just set the current piece's posistion to the final tile
@@ -78,7 +81,10 @@ var board_state = {
         create: function () {
                 board      = game.add.sprite(game.world.centerX, game.world.centerY, 'board_image');
                 logo       = game.add.sprite(275, 200,'logo_image');
+
+                timer = game.time.events.add(Phaser.Timer.MINUTE * turn_length, advance_turn, this);
                 timer_text   = game.add.text(400,  570, "");
+        
                 suprise_text = game.add.text(200,  670, "", game_info.surprise_card_text_box_style);
                 roll_button = game.add.button(200, 775, 'dice_roll_button', turn, this);
                 logo.scale.setTo(0.3,0.3);
@@ -101,12 +107,13 @@ var board_state = {
                 current_piece_x = 'piece_'+ 1 + '_x';
                 current_piece_y = 'piece_'+ 1 + '_y';
                 update_turn_indicator();
-                game.time.events.add(Phaser.Timer.MINUTE * turn_length, advance_turn, this);
         },
 
         update: function  () {
-                var time_string       = format_time(game.time.events.duration);
-                var current_dice_roll;
-                timer_text.setText("Time Left: " + time_string);
+                if(first_turn_taken == 1){
+                        var time_string       = format_time(game.time.events.duration);
+                        timer_text.setText("Time Left: " + time_string);        
+                }
+                
         }
 }
