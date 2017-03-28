@@ -23,6 +23,7 @@ function turn(){
 
         current_piece_x = 'piece_'+ (current_turn+1) + '_x';
         current_piece_y = 'piece_'+ (current_turn+1) + '_y';
+        update_turn_indicator();
 };
 
 function advance_turn (){
@@ -50,16 +51,36 @@ function suprise () {
         return game_info.surprise_card_descriptions[suprise_card_index];
 };
 
+function update_turn_indicator () {
+        console.log("called");
+        var current_piece_image = 'piece_'+ (current_turn+1) + '_image';
+        var current_team_piece = game.add.sprite(500, 375, current_piece_image);
+        var other_team_pieces  = [];
+        var starting_x_pos     = 450;
+
+        for(var i = 0; i < pieces.length; i++){
+                console.log("loop started")
+                if(i == current_turn){
+                        console.log("skipping current turn")
+                        continue;
+                }
+
+                console.log("adding a sprite")
+                current_piece_image = 'piece_'+ (i+1) + '_image';
+                other_team_pieces.push(game.add.sprite(starting_x_pos, 425, current_piece_image));
+                starting_x_pos += 25;
+
+        }
+}
+
+
 var board_state = {
         create: function () {
                 board      = game.add.sprite(game.world.centerX, game.world.centerY, 'board_image');
+                logo       = game.add.sprite(275, 200,'logo_image');
                 timer_text   = game.add.text(400,  470, "");
                 suprise_text = game.add.text(200,  670, "", game_info.surprise_card_text_box_style);
-
-                logo       = game.add.sprite(275, 200,'logo_image');
-                leftKey = game.input.keyboard.addKey(Phaser.Keyboard.LEFT);
                 roll_button = game.add.button(200, 775, 'dice_roll_button', turn, this);
-
                 logo.scale.setTo(0.3,0.3);
                 board.anchor.setTo(0.5, 0.5);
 
@@ -79,6 +100,7 @@ var board_state = {
                 // We need to reset these varibles so that they are correctly initalized for update
                 current_piece_x = 'piece_'+ 1 + '_x';
                 current_piece_y = 'piece_'+ 1 + '_y';
+                update_turn_indicator();
                 game.time.events.add(Phaser.Timer.MINUTE * turn_length, advance_turn, this);
         },
 
