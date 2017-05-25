@@ -8,7 +8,7 @@
 */
 
 // Constructor for game_info object
-function Game_info (data) {
+function Game_info () {
         this.turn_length_prompt_text       = "How long should each turn be (In minutes, cannot be 0)?";
         this.number_teams_prompt_text      = "How many teams will there be (Minimum 1, Maximum 6)?"; 
         this.number_dice_sides_prompt_text = "How many sides will the dice have (must be at least 1)?"; 

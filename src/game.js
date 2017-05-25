@@ -1,5 +1,5 @@
-var game       = new Phaser.Game(1000, 1000, Phaser.AUTO, '');
-var game_info  = new Game_info();
+var game_info         = new Game_info();
+var game              = new Phaser.Game(game_info.board_x_size, game_info.board_y_size, Phaser.AUTO, 'game_canvas');
 
 var turn_length       = 0;
 var number_teams      = 0;

@@ -1,22 +1,16 @@
 var menu_state = {
-	create: function () {
+	create: function (){
+		$("#game_canvas").hide();
+	},
 
-		while (turn_length <= 0){
-			turn_length = prompt(game_info.turn_length_prompt_text);
-		} 
+	update: function () {
+		turn_length       = $("#turn_length_selection").val();
+		number_teams      = $("#number_teams_selection").val();
+		number_dice_sides = $("#number_dice_sides_selection").val();
+		console.log(turn_length)
 
-		while (number_teams <= 0){
-			number_teams = prompt(game_info.number_teams_prompt_text);
-			if(number_teams > 6){
-				number_teams = 0;
-			}
+		if(turn_length != 0 && number_teams != 0 && number_dice_sides != 0){
+			game.state.start('board')				
 		}
-
-		while (number_dice_sides <= 0){
-			number_dice_sides = prompt(game_info.number_dice_sides_prompt_text)
-		}
-
-		game.state.start('board')	
-	}
-	
+	}	
 }

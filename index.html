@@ -3,15 +3,62 @@
     <head>
         <meta charset="UTF-8" />
         <title>Maker Games</title>
-        <script src="/lib/phaser.min.js"></script>
-        <script src="/lib/jquery-3.1.1.min.js"></script>
-        <script src="/src/game_info.js"></script>
-        <script src="/src/piece.js"></script>
-        <script src="/src/load.js"></script>
-        <script src="/src/menu.js"></script>
-        <script src="/src/board.js"></script>
-        <script src="/src/game.js"></script>
+        <script src = "/lib/phaser.min.js"></script>
+        <script src = "/lib/jquery-3.1.1.min.js"></script>
+        <script src = "/src/game_info.js"></script>
+        <script src = "/src/piece.js"></script>
+        <script src = "/src/load.js"></script>
+        <script src="/src/menu.js"></script> 
+        <script src = "/src/board.js"></script>
+        <script src = "/src/game.js"></script>
     </head>
     <body>
+
+        <div id ="turn_length_div">
+            <p> Turn Length </p>
+            <select id = "turn_length_selection">
+                <option value="0">-</option>
+                <option value="1">1 minute</option>
+                <option value="2">2 minutes</option>
+                <option value="3">3 minutes</option>
+                <option value="4">4 minutes</option>
+                <option value="5">5 minutes</option>
+            </select>
+        </div>
+
+        <div id ="number_teams_div">
+            <p> Number of Teams </p>
+            <select id = "number_teams_selection">
+                <option value="0">-</option>
+                <option value="1">1 team</option>
+                <option value="2">2 teams</option>
+                <option value="3">3 teams</option>
+                <option value="4">4 teams</option>
+                <option value="5">5 teams</option>
+                <option value="6">6 teams</option>
+            </select> 
+        </div>
+
+        <div id = "number_dice_sides_div">
+            <p> Number of Dice Sides </p>
+            <select id = "number_dice_sides_selection">
+                <option value="0">-</option>
+                <option value="1">1 side</option>
+                <option value="2">2 sides</option>
+                <option value="3">3 sides</option>
+                <option value="4">4 sides</option>
+                <option value="5">5 sides</option>
+                <option value="6">6 sides</option>
+                <option value="7">7 sides</option>
+                <option value="8">8 sides</option>
+                <option value="9">9 sides</option>
+                <option value="10">10 sides</option>
+                <option value="11">11 sides</option>
+                <option value="12">12 sides</option>
+            </select>
+        </div>        
+
+        <div id="game_canvas"></div>
+
     </body>
 </html>

@@ -1,3 +1,10 @@
+function hide_menu_show_game() {
+        $("#turn_length_div").remove();
+        $("#number_teams_div").remove();
+        $("#number_dice_sides_div").remove();
+        $("#game_canvas").show();
+}
+
 function turn(){
         first_turn_taken = 1;
         //timer.destory();
@@ -79,6 +86,7 @@ function update_turn_indicator () {
 
 var board_state = {
         create: function () {
+                hide_menu_show_game();
                 board      = game.add.sprite(game.world.centerX, game.world.centerY, 'board_image');
                 logo       = game.add.sprite(275, 200,'logo_image');
 
