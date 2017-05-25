@@ -9,7 +9,6 @@ var load_state = {
                 game.load.image('piece_6_image',    game_info.piece_6_image);
                 game.load.image('logo_image',       game_info.logo_image);
                 game.load.image('dice_roll_button', game_info.dice_roll_button_image);
-
         },
 
         create: function () {
