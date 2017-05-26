@@ -453,8 +453,9 @@ function Game_info () {
 
         // Other Images
         this.logo_image             = "/assets/images/logo.png";
-        this.dice_roll_button_image = "/assets/images/roll_button.png"; 
-
+        this.dice_roll_button_image = "/assets/images/popup/roll_button.png"; 
+        this.popup_background_image = "/assets/images/popup/popup_background.png"
+        
         //Surprise Card Text
         this.surprise_card_descriptions = [
                 "Build Different - Replace the materials you are using in (part of) your design with other materials, and rebuild",

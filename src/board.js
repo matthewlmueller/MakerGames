@@ -63,20 +63,17 @@ function suprise () {
 };
 
 function update_turn_indicator () {
-        console.log("called");
         var current_piece_image = 'piece_'+ (current_turn+1) + '_image';
         var current_team_piece = game.add.sprite(500, 425, current_piece_image);
         var other_team_pieces  = [];
         var starting_x_pos     = 450;
 
         for(var i = 0; i < pieces.length; i++){
-                console.log("loop started")
                 if(i == current_turn){
-                        console.log("skipping current turn")
                         continue;
                 }
 
-                console.log("adding a sprite")
+
                 current_piece_image = 'piece_'+ (i+1) + '_image';
                 other_team_pieces.push(game.add.sprite(starting_x_pos, 475, current_piece_image));
                 starting_x_pos += 25;
@@ -88,18 +85,20 @@ function update_turn_indicator () {
 var board_state = {
         create: function () {
                 hide_menu_show_game();
-                board      = game.add.sprite(game.world.centerX, game.world.centerY, 'board_image');
-                logo       = game.add.sprite(275, 200,'logo_image');
+
+                board            = game.add.sprite(game.world.centerX, game.world.centerY, 'board_image');
+                logo             = game.add.sprite(275, 200,'logo_image');
+                popup_background = game.add.sprite(220, 220,'popup_background_image');
 
                 timer = game.time.events.add(Phaser.Timer.MINUTE * turn_length, advance_turn, this);
                 timer_text   = game.add.text(400,  570, "");
         
                 suprise_text = game.add.text(200,  670, "", game_info.surprise_card_text_box_style);
-                roll_button = game.add.button(200, 775, 'dice_roll_button', turn, this);
+                roll_button = game.add.button(200, 775, 'dice_roll_button_image', turn, this);
                 logo.scale.setTo(0.3,0.3);
                 board.anchor.setTo(0.5, 0.5);
 
-                // Create the correct number of piece controlers
+                // Create the correct number of piece controllers
                 for(var i = 0; i < number_teams; i++){
                         piece_controlers.push(new Piece_controler());
                 }
@@ -112,7 +111,7 @@ var board_state = {
                 }     
 
 
-                // We need to reset these varibles so that they are correctly initalized for update
+                // We need to reset these variables so that they are correctly initialized for update
                 current_piece_x = 'piece_'+ 1 + '_x';
                 current_piece_y = 'piece_'+ 1 + '_y';
                 update_turn_indicator();
