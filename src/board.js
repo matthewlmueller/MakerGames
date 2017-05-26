@@ -1,4 +1,5 @@
 function hide_menu_show_game() {
+        $("#logo_div").remove();
         $("#turn_length_div").remove();
         $("#number_teams_div").remove();
         $("#number_dice_sides_div").remove();
