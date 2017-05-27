@@ -9,10 +9,6 @@
 
 // Constructor for game_info object
 function Game_info () {
-        this.turn_length_prompt_text       = "How long should each turn be (In minutes, cannot be 0)?";
-        this.number_teams_prompt_text      = "How many teams will there be (Minimum 1, Maximum 6)?"; 
-        this.number_dice_sides_prompt_text = "How many sides will the dice have (must be at least 1)?"; 
-
         this.board_image   = "/assets/images/board.jpg";
         this.board_x_size  = 1000;
         this.board_y_size  = 1000;
@@ -36,7 +32,9 @@ function Game_info () {
                         "piece_5_y":925,
 
                         "piece_6_x":925,
-                        "piece_6_y":925
+                        "piece_6_y":925,
+
+                        "tile_text":"Frame Problem / Start / continue"
                 },
                 // Tile 2
                 {
@@ -56,7 +54,9 @@ function Game_info () {
                         "piece_5_y":925,
 
                         "piece_6_x":785,
-                        "piece_6_y":925
+                        "piece_6_y":925,
+
+                        "tile_text":"Describe Your Client"
 
                 },
                 // Tile 3
@@ -77,7 +77,9 @@ function Game_info () {
                         "piece_5_y":925,
 
                         "piece_6_x":615,
-                        "piece_6_y":925
+                        "piece_6_y":925,
+
+                        "tile_text":"Brainstorm Similar Things Already Made"
 
                 },
                 // Tile 4
@@ -98,7 +100,9 @@ function Game_info () {
                         "piece_5_y":925,
 
                         "piece_6_x":455,
-                        "piece_6_y":925
+                        "piece_6_y":925,
+
+                        "tile_text":"List Design Constraints"
 
                 },
                 // Tile 5
@@ -119,7 +123,9 @@ function Game_info () {
                         "piece_5_y":925,
 
                         "piece_6_x":455,
-                        "piece_6_y":925
+                        "piece_6_y":925,
+
+                        "tile_text":"Measure Success of Your Solution"
 
                 },
                 // Tile 6
@@ -140,7 +146,9 @@ function Game_info () {
                         "piece_5_y":925,
 
                         "piece_6_x":150,
-                        "piece_6_y":925
+                        "piece_6_y":925,
+
+                        "tile_text":"Make"
 
                 },
         // First Column
@@ -162,7 +170,9 @@ function Game_info () {
                         "piece_5_y":725,
 
                         "piece_6_x":100,
-                        "piece_6_y":770
+                        "piece_6_y":770,
+
+                        "tile_text":"Identify Strengths and Weakness of Materials"
 
                 },
                 // Tile 8
@@ -183,7 +193,9 @@ function Game_info () {
                         "piece_5_y":575,
 
                         "piece_6_x":100,
-                        "piece_6_y":615
+                        "piece_6_y":615,
+
+                        "tile_text":"Identify Natural Resources that are in the Materials"
 
 
                 },
@@ -205,7 +217,9 @@ function Game_info () {
                         "piece_5_y":410,
 
                         "piece_6_x":100,
-                        "piece_6_y":460
+                        "piece_6_y":460,
+
+                        "tile_text":"Surprise!"
 
                 },
                 // Tile 10
@@ -226,7 +240,9 @@ function Game_info () {
                         "piece_5_y":250,
 
                         "piece_6_x":100,
-                        "piece_6_y":300
+                        "piece_6_y":300,
+
+                        "tile_text":"Imagine if There Were no Constraints"
 
                 },
                 // Tile 11
@@ -247,7 +263,10 @@ function Game_info () {
                         "piece_5_y":100,
 
                         "piece_6_x":100,
-                        "piece_6_y":150
+                        "piece_6_y":150,
+
+                        "tile_text":"Evaluate"
+                        
 
                 },
         // Second Row
@@ -269,7 +288,10 @@ function Game_info () {
                         "piece_5_y":100,
 
                         "piece_6_x":325,
-                        "piece_6_y":100
+                        "piece_6_y":100,
+
+                        "tile_text":"Act Out Client's Response to Your Prototype"
+                       
                 },
                 // Tile 13
                 {
@@ -289,7 +311,10 @@ function Game_info () {
                         "piece_5_y":100,
 
                         "piece_6_x":450,
-                        "piece_6_y":100
+                        "piece_6_y":100,
+
+                        "tile_text":"List Ways to Evaluate Your Prototype with Numbers"
+                       
 
                 },
                 // Tile 14
@@ -310,8 +335,10 @@ function Game_info () {
                         "piece_5_y":100,
 
                         "piece_6_x":620,
-                        "piece_6_y":100
+                        "piece_6_y":100,
 
+                        "tile_text":"Identify Different Parts of Your Prototype To Test"
+                       
                 },
                 // Tile 15
                 {
@@ -331,7 +358,10 @@ function Game_info () {
                         "piece_5_y":100,
 
                         "piece_6_x":770,
-                        "piece_6_y":100
+                        "piece_6_y":100,
+
+                        "tile_text":"List Your Prototype's Best & Worst Features"
+                        
 
                 },
                 // Tile 16
@@ -352,7 +382,10 @@ function Game_info () {
                         "piece_5_y":100,
 
                         "piece_6_x":930,
-                        "piece_6_y":100
+                        "piece_6_y":100,
+
+                        "tile_text":"Share"
+                        
 
                 },
         // Second Column
@@ -374,7 +407,10 @@ function Game_info () {
                         "piece_5_y":250,
 
                         "piece_6_x":935,
-                        "piece_6_y":300
+                        "piece_6_y":300,
+
+                        "tile_text":"Name Your Product"
+                        
 
                 },
                 // Tile 18
@@ -395,7 +431,10 @@ function Game_info () {
                         "piece_5_y":410,
 
                         "piece_6_x":935,
-                        "piece_6_y":525
+                        "piece_6_y":525,
+
+                        "tile_text":"Design an Adjective for Your Product"
+                        
 
                 },
                 // Tile 19
@@ -416,7 +455,10 @@ function Game_info () {
                         "piece_5_y":570,
 
                         "piece_6_x":935,
-                        "piece_6_y":615
+                        "piece_6_y":615,
+
+                        "tile_text":"Surprise!"
+                        
 
 
                 },
@@ -439,6 +481,8 @@ function Game_info () {
 
                         "piece_6_x":935,
                         "piece_6_y":770
+
+                        "tile_text":"Identify Your Product's Selling Point in a Few Words"
 
                 },
         ]
