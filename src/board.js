@@ -8,8 +8,6 @@ function hide_menu_show_game() {
 
 function turn(){
         first_turn_taken = 1;
-        //timer.destory();
-        //timer = game.time.events.add(Phaser.Timer.MINUTE * turn_length, advance_turn, this);
         current_dice_roll = roll_dice(number_dice_sides);
 
         // Check if the current dice roll would move the piece past the end of the board
@@ -35,10 +33,6 @@ function turn(){
         current_piece_x = 'piece_'+ (current_turn+1) + '_x';
         current_piece_y = 'piece_'+ (current_turn+1) + '_y';
         update_turn_indicator();
-};
-
-function advance_turn (){
-        //TO DO make this do something
 };
 
 
@@ -89,12 +83,17 @@ var board_state = {
                 board            = game.add.sprite(game.world.centerX, game.world.centerY, 'board_image');
                 logo             = game.add.sprite(275, 200,'logo_image');
                 popup_background = game.add.sprite(220, 220,'popup_background_image');
+                roll_button      = game.add.button(465, 725, 'dice_roll_button_image', turn, this);
+                popup_group      = game.add.group();
+                suprise_text     = game.add.text(200,  670, "", game_info.surprise_card_text_box_style);
+                timer            = game.time.events.add(Phaser.Timer.MINUTE * turn_length, this);
+                timer_text       = game.add.text(400,  570, "");
+                
 
-                timer = game.time.events.add(Phaser.Timer.MINUTE * turn_length, advance_turn, this);
-                timer_text   = game.add.text(400,  570, "");
-        
-                suprise_text = game.add.text(200,  670, "", game_info.surprise_card_text_box_style);
-                roll_button = game.add.button(200, 775, 'dice_roll_button_image', turn, this);
+                popup_group.add(popup_background);
+                popup_group.add(roll_button);
+
+
                 logo.scale.setTo(0.3,0.3);
                 board.anchor.setTo(0.5, 0.5);
 
