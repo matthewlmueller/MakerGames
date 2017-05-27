@@ -32,6 +32,7 @@ function turn(){
 
         current_piece_x = 'piece_'+ (current_turn+1) + '_x';
         current_piece_y = 'piece_'+ (current_turn+1) + '_y';
+        update_popup();
 };
 
 
@@ -55,8 +56,13 @@ function suprise () {
         return game_info.surprise_card_descriptions[suprise_card_index];
 };
 
+// This should be changed - sprites are currently just being piled on top of each other, could theoretically use too much memory
 function update_popup () {
-
+        var current_piece_image = 'piece_'+ (current_turn+1) + '_image';
+        var current_team_piece = game.add.sprite(235, 240, current_piece_image);
+        var text = "Team " + (current_turn+1);
+        current_team_text.setText (text);
+       // popup_group.add(current_piece_image);
 }
 
 
@@ -76,8 +82,8 @@ var board_state = {
 
                 
 
-                //popup_group.add(popup_background);
-                //popup_group.add(roll_button);
+                popup_group.add(popup_background);
+                popup_group.add(roll_button);
 
 
                 logo.scale.setTo(0.3,0.3);
@@ -99,6 +105,7 @@ var board_state = {
                 // We need to reset these variables so that they are correctly initialized for update
                 current_piece_x = 'piece_'+ 1 + '_x';
                 current_piece_y = 'piece_'+ 1 + '_y';
+                update_popup();
         },
 
         update: function  () {
