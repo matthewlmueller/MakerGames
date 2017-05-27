@@ -32,7 +32,6 @@ function turn(){
 
         current_piece_x = 'piece_'+ (current_turn+1) + '_x';
         current_piece_y = 'piece_'+ (current_turn+1) + '_y';
-        update_turn_indicator();
 };
 
 
@@ -56,23 +55,8 @@ function suprise () {
         return game_info.surprise_card_descriptions[suprise_card_index];
 };
 
-function update_turn_indicator () {
-        var current_piece_image = 'piece_'+ (current_turn+1) + '_image';
-        var current_team_piece = game.add.sprite(500, 425, current_piece_image);
-        var other_team_pieces  = [];
-        var starting_x_pos     = 450;
+function update_popup () {
 
-        for(var i = 0; i < pieces.length; i++){
-                if(i == current_turn){
-                        continue;
-                }
-
-
-                current_piece_image = 'piece_'+ (i+1) + '_image';
-                other_team_pieces.push(game.add.sprite(starting_x_pos, 475, current_piece_image));
-                starting_x_pos += 25;
-
-        }
 }
 
 
@@ -80,18 +64,20 @@ var board_state = {
         create: function () {
                 hide_menu_show_game();
 
-                board            = game.add.sprite(game.world.centerX, game.world.centerY, 'board_image');
-                logo             = game.add.sprite(275, 200,'logo_image');
-                popup_background = game.add.sprite(220, 220,'popup_background_image');
-                roll_button      = game.add.button(465, 725, 'dice_roll_button_image', turn, this);
-                popup_group      = game.add.group();
-                suprise_text     = game.add.text(200,  670, "", game_info.surprise_card_text_box_style);
-                timer            = game.time.events.add(Phaser.Timer.MINUTE * turn_length, this);
-                timer_text       = game.add.text(400,  570, "");
+                board             = game.add.sprite(game.world.centerX, game.world.centerY, 'board_image');
+                logo              = game.add.sprite(275, 200,'logo_image');
+                popup_background  = game.add.sprite(220, 220,'popup_background_image');
+                roll_button       = game.add.button(465, 725, 'dice_roll_button_image', turn, this);
+                popup_group       = game.add.group();
+                current_team_text = game.add.text(300, 250, "omg this is some text");
+                suprise_text      = game.add.text(200,  670, "", game_info.surprise_card_text_box_style);
+                timer             = game.time.events.add(Phaser.Timer.MINUTE * turn_length, this);
+                timer_text        = game.add.text(400,  570, "");
+
                 
 
-                popup_group.add(popup_background);
-                popup_group.add(roll_button);
+                //popup_group.add(popup_background);
+                //popup_group.add(roll_button);
 
 
                 logo.scale.setTo(0.3,0.3);
@@ -113,7 +99,6 @@ var board_state = {
                 // We need to reset these variables so that they are correctly initialized for update
                 current_piece_x = 'piece_'+ 1 + '_x';
                 current_piece_y = 'piece_'+ 1 + '_y';
-                update_turn_indicator();
         },
 
         update: function  () {
