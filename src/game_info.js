@@ -480,7 +480,7 @@ function Game_info () {
                         "piece_5_y":730,
 
                         "piece_6_x":935,
-                        "piece_6_y":770
+                        "piece_6_y":770,
 
                         "tile_text":"Identify Your Product's Selling Point in a Few Words"
 
