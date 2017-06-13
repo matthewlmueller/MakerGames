@@ -27,11 +27,7 @@ function turn(){
                 piece_controlers[current_turn].current_tile += current_dice_roll;
         }
 
-        /*
-        if(piece_controlers[current_turn].current_tile == 8 || piece_controlers[current_turn].current_tile == 18){
-                suprise_text.setText(suprise());
-        }
-        */
+        
 
         current_roll_value_text.setText(current_dice_roll);
         current_roll_value_text.visible = true;        
@@ -47,6 +43,7 @@ function turn(){
                 }, 2000)
                 
         current_tile_text.text = game_info.board_tiles[piece_controlers[current_turn].current_tile]["tile_text"];
+        is_suprise(piece_controlers[current_turn].current_tile);
         timer.start();
         }, 2000);
 
@@ -68,9 +65,12 @@ function roll_dice (dice_size){
         return Math.floor(Math.random() * (dice_size - 1 + 1)) + 1;
 };
 
-function suprise () {
-        var suprise_card_index = roll_dice(game_info.surprise_card_descriptions.length-1);
-        return game_info.surprise_card_descriptions[suprise_card_index];
+function is_suprise (current_piece_posistion) {
+        if(game_info.suprise_tile_locations.includes(current_piece_posistion) == true){
+                var selected_suprise_card          = roll_dice(game_info.surprise_card_descriptions.length-1);
+                var selected_surpise_card_text     = game_info.surprise_card_descriptions[selected_suprise_card];
+                current_tile_text.setText(selected_surpise_card_text);
+        }    
 };
 
 
@@ -124,7 +124,7 @@ var board_state = {
                 popup_group               = game.add.group();
                 current_team_text         = game.add.text(300, 250, "");
                 current_roll_value_text   = game.add.text(500, 500, "");
-                current_tile_text         = game.add.text(400,  590, "this is where the tile text will go", game_info.surprise_card_text_box_style);
+                current_tile_text         = game.add.text(230,  590, "", game_info.surprise_card_text_box_style);
                 timer_text                = game.add.text(400,  650, "");
 
                 popup_group.add(popup_background);

@@ -36,6 +36,7 @@ function Game_info () {
 
                         "tile_text":"Frame Problem / Start / continue"
                 },
+
                 // Tile 2
                 {
                         "piece_1_x":680,
@@ -57,8 +58,8 @@ function Game_info () {
                         "piece_6_y":925,
 
                         "tile_text":"Describe Your Client"
-
                 },
+
                 // Tile 3
                 {
                         "piece_1_x":520,
@@ -80,8 +81,8 @@ function Game_info () {
                         "piece_6_y":925,
 
                         "tile_text":"Brainstorm Similar Things Already Made"
-
                 },
+
                 // Tile 4
                 {
                         "piece_1_x":360,
@@ -105,6 +106,7 @@ function Game_info () {
                         "tile_text":"List Design Constraints"
 
                 },
+
                 // Tile 5
                 {
                         "piece_1_x":215,
@@ -128,6 +130,7 @@ function Game_info () {
                         "tile_text":"Measure Success of Your Solution"
 
                 },
+
                 // Tile 6
                 {
                         "piece_1_x":50,
@@ -175,6 +178,7 @@ function Game_info () {
                         "tile_text":"Identify Strengths and Weakness of Materials"
 
                 },
+
                 // Tile 8
                 {
                         "piece_1_x":50,
@@ -199,6 +203,7 @@ function Game_info () {
 
 
                 },
+
                 // Tile 9
                 {
                         "piece_1_x":50,
@@ -222,6 +227,7 @@ function Game_info () {
                         "tile_text":"Surprise!"
 
                 },
+
                 // Tile 10
                 {
                         "piece_1_x":50,
@@ -245,6 +251,7 @@ function Game_info () {
                         "tile_text":"Imagine if There Were no Constraints"
 
                 },
+
                 // Tile 11
                 {
                         "piece_1_x":50,
@@ -293,6 +300,7 @@ function Game_info () {
                         "tile_text":"Act Out Client's Response to Your Prototype"
                        
                 },
+
                 // Tile 13
                 {
                         "piece_1_x":375,
@@ -317,6 +325,7 @@ function Game_info () {
                        
 
                 },
+
                 // Tile 14
                 {
                         "piece_1_x":525,
@@ -340,6 +349,7 @@ function Game_info () {
                         "tile_text":"Identify Different Parts of Your Prototype To Test"
                        
                 },
+
                 // Tile 15
                 {
                         "piece_1_x":675,
@@ -364,6 +374,7 @@ function Game_info () {
                         
 
                 },
+
                 // Tile 16
                 {
                         "piece_1_x":850,
@@ -413,6 +424,7 @@ function Game_info () {
                         
 
                 },
+
                 // Tile 18
                 {
                         "piece_1_x":835,
@@ -434,9 +446,8 @@ function Game_info () {
                         "piece_6_y":525,
 
                         "tile_text":"Design an Adjective for Your Product"
-                        
-
                 },
+
                 // Tile 19
                 {
                         "piece_1_x":835,
@@ -458,10 +469,9 @@ function Game_info () {
                         "piece_6_y":615,
 
                         "tile_text":"Surprise!"
-                        
-
 
                 },
+
                 // Tile 20
                 {
                         "piece_1_x":835,
@@ -500,7 +510,17 @@ function Game_info () {
         this.dice_roll_button_image = "/assets/images/popup/roll_button.png"; 
         this.popup_background_image = "/assets/images/popup/popup_background.png"
         
-        //Surprise Card Text
+        
+
+
+        // Surprise Tile Numbers
+        // 8, 18
+        this.suprise_tile_locations = [
+             8, 
+             18
+        ]
+ 
+        // Surprise Card Text
         this.surprise_card_descriptions = [
                 "Build Different - Replace the materials you are using in (part of) your design with other materials, and rebuild",
                 "Build more - Grab one handful of additional materials and add them to your design",
@@ -516,6 +536,6 @@ function Game_info () {
                 "Logo - Design and sketch "
         ];
 
-        this.surprise_card_text_box_style = {font:"14px Arial"};
+        this.surprise_card_text_box_style = {font:"14px Arial", wordWrap: true, wordWrapWidth: 500, boundsAlignH: "center", boundsAlignV: "middle"};
 
 }
