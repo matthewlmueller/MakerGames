@@ -14,7 +14,7 @@ function get_display_tile_text(){
 
 function turn(){
         timer       = game.time.create();
-        timer_event = timer.add(Phaser.Timer.MINUTE * turn_length, timer_dummy, game);
+        timer_event = timer.add(Phaser.Timer.MINUTE * turn_length, end_of_turn, game);
         turn_in_progress = 1;
         roll_button.visible = false;
         current_dice_roll = roll_dice(number_dice_sides);
@@ -92,10 +92,11 @@ function update_popup () {
         current_team_text.setText(text);
 }
 
-function timer_dummy (){
+function end_of_turn (){
         timer.stop();
-        turn_in_progress       = 0;
-        timer_text.text        = "Time's Up";
+        turn_in_progress = 0;
+        timer_text.text  = "Time's Up";
+        timer_text.addColor("#ff0000", 0)  
         current_tile_text.text = "";
 
         current_turn++;
@@ -106,12 +107,10 @@ function timer_dummy (){
 
         setTimeout(function() {
                timer_text.text     = "";
+               timer_text.addColor("#000000", 0)
                roll_button.visible = true;
                update_popup();
-        }, 3000)
-
-
-        
+        }, 3000)        
 }
 
 var board_state = {
@@ -157,35 +156,20 @@ var board_state = {
         },
 
         update: function  () {
-                //console.log("begining update")
-
-                
-
                 if(turn_in_progress == 1){
-                        //console.log(timer_event.delay - timer.ms)
                         if(timer_event.delay - timer.ms == 0){
                                 turn_in_progress = 0;
-                                //console.log("time is up")
                                 timer.destroy();
                                 return
                         }
 
-                        /*
-                        console.log("a turn is happening");
-                        console.log(timer);
-                        console.log(timer_event);
-                        */
                         time_string = format_time(timer_event.delay - timer.ms);
-                        //console.log("time_string successfully created");
 
                         timer_text.setText("Time Left: " + time_string);
-                        //console.log("timer text correctly set")
 
                         
-                       // console.log("turn update function complete");
                         return
                 }  
-                //console.log("no turn is happening")
                 return
         }
 }
