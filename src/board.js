@@ -1,8 +1,8 @@
 function hide_menu_show_game() {
-        $("#logo_div").remove();
-        $("#turn_length_div").remove();
-        $("#number_teams_div").remove();
-        $("#number_dice_sides_div").remove();
+        $("#logo_div").hide();
+        $("#turn_length_div").hide();
+        $("#number_teams_div").hide();
+        $("#number_dice_sides_div").hide();
         $("#game_canvas").show();
 }
 
@@ -113,6 +113,10 @@ function end_of_turn (){
         }, 3000)        
 }
 
+function go_to_presentations(){
+        game.state.start('presentation_menu');
+}
+
 var board_state = {
         create: function () {
                 hide_menu_show_game();
@@ -121,6 +125,7 @@ var board_state = {
                 logo                      = game.add.sprite(275, 200,'logo_image');
                 popup_background          = game.add.sprite(220, 220,'popup_background_image');
                 roll_button               = game.add.button(465, 725, 'dice_roll_button_image', turn, game);
+                presentation_button       = game.add.button(0, 0, "go_to_presentation_button_image", go_to_presentations, game);
                 popup_group               = game.add.group();
                 current_team_text         = game.add.text(300, 250, "");
                 current_roll_value_text   = game.add.text(500, 500, "");

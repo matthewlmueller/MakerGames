@@ -506,9 +506,10 @@ function Game_info () {
         this.piece_6_image = "/assets/images/pieces/piece6.png";
 
         // Other Images
-        this.logo_image             = "/assets/images/logo.png";
-        this.dice_roll_button_image = "/assets/images/popup/roll_button.png"; 
-        this.popup_background_image = "/assets/images/popup/popup_background.png"
+        this.logo_image                      = "/assets/images/logo.png";
+        this.dice_roll_button_image          = "/assets/images/popup/roll_button.png"; 
+        this.popup_background_image          = "/assets/images/popup/popup_background.png"
+        this.go_to_presentation_button_image = "/assets/images/popup/go_to_presentation_button.png"
         
         
 
@@ -538,4 +539,12 @@ function Game_info () {
 
         this.surprise_card_text_box_style = {font:"14px Arial", wordWrap: true, wordWrapWidth: 500, boundsAlignH: "center", boundsAlignV: "middle"};
 
+        // Presentation Prompts
+        this.presentation_prompts = [
+                "Identify Audience",
+                "Who Will Say What, When, How?",
+                "Props/Timing",
+                "Rehearsal",
+                "Cleanup"
+        ]
 }

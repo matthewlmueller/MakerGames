@@ -1,6 +1,7 @@
 var menu_state = {
 	create: function (){
 		$("#game_canvas").hide();
+		$("#presentation_length_div").hide();
 	},
 
 	update: function () {

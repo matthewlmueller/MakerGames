@@ -10,6 +10,8 @@
         <script src = "/src/load.js"></script>
         <script src="/src/menu.js"></script> 
         <script src = "/src/board.js"></script>
+        <script src = "/src/presentation_menu.js"></script>
+        <script src = "/src/presentation.js"></script>
         <script src = "/src/game.js"></script>
         <link rel="stylesheet" type="text/css" href="style.css">
     </head>
@@ -63,7 +65,20 @@
                 <option value="11">11 sides</option>
                 <option value="12">12 sides</option>
             </select>
-        </div>        
+        </div>    
+
+        <div id = "presentation_length_div">
+            <p> Time Until Presentations </p>
+            <select id = "presentation_length_selection">
+                <option value="0">-</option>
+                <option value="5">5 minutes</option>
+                <option value="7">7 minutes</option>
+                <option value="9">9 minutes</option>
+                <option value="11">11 minutes</option>
+                <option value="13">13 minutes</option>
+                <option value="15">15 minutes</option>
+            </select>
+        </div>    
 
         <div id="game_canvas"></div>
 
