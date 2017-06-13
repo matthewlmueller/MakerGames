@@ -22,7 +22,7 @@ function turn(){
         // Check if the current dice roll would move the piece past the end of the board
         // If so - just set the current piece's posistion to the final tile
         if(piece_controlers[current_turn].current_tile + current_dice_roll >= 19){
-                piece_controlers[current_turn].current_tile = 19;
+                piece_controlers[current_turn].current_tile = 1;
         } else {
                 piece_controlers[current_turn].current_tile += current_dice_roll;
         }
