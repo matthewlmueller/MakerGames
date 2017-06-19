@@ -508,8 +508,9 @@ function Game_info () {
         // Other Images
         this.logo_image                      = "/assets/images/logo.png";
         this.dice_roll_button_image          = "/assets/images/popup/roll_button.png"; 
-        this.popup_background_image          = "/assets/images/popup/popup_background.png"
-        this.go_to_presentation_button_image = "/assets/images/popup/go_to_presentation_button.png"
+        this.popup_background_image          = "/assets/images/popup/popup_background.png";
+        this.go_to_presentation_button_image = "/assets/images/popup/go_to_presentation_button.png";
+        this.next_round_button_image         ="/assets/images/popup/next_round_button.png";
         
         
 

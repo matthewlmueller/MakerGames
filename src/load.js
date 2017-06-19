@@ -8,9 +8,11 @@ var load_state = {
                 game.load.image('piece_5_image',    game_info.piece_5_image);
                 game.load.image('piece_6_image',    game_info.piece_6_image);
                 game.load.image('logo_image',       game_info.logo_image);
-                game.load.image('go_to_presentation_button_image',game_info.go_to_presentation_button_image)
+                game.load.image('go_to_presentation_button_image',game_info.go_to_presentation_button_image);
+                game.load.image('next_round_button_image', game_info.next_round_button_image);
                 game.load.image('dice_roll_button_image', game_info.dice_roll_button_image);
                 game.load.image('popup_background_image', game_info.popup_background_image);
+
         },
 
         create: function () {
