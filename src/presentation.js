@@ -20,7 +20,7 @@ var presentation_state = {
 		board                     = game.add.sprite(game.world.centerX, game.world.centerY, 'board_image');
                 logo                      = game.add.sprite(275, 35,'logo_image');
                 popup_background          = game.add.sprite(220, 220,'popup_background_image');
-                prompt_text               = game.add.text(350,  500, "");
+                prompt_text               = game.add.text(350,  500, game_info.presentation_prompts[0]);
 
                 
 
