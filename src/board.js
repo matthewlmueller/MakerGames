@@ -13,7 +13,6 @@ function get_display_tile_text(){
 }
 
 function turn(){
-        console.log(current_turn)
         timer       = game.time.create();
         timer_event = timer.add(Phaser.Timer.MINUTE * turn_length, end_of_turn, game);
         turn_in_progress = 1;
@@ -128,27 +127,19 @@ function go_to_presentations(){
 }
 
 function next_round () {
-     presentation_button.visible = true;
-     next_round_button.visible   = true;
-     roll_button.visible         = true;
-     turn();
+    presentation_button.visible = false;
+    next_round_button.visible   = false;
+    roll_button.visible         = true;
 }
 
 var board_state = {
         create: function () {
                 hide_menu_show_game();
-
-                //presentation_buttonz       = game.add.button(464, 625, "go_to_presentation_button_image", go_to_presentations, game);
-                //next_round_button         = game.add.button(463, 525, "next_round_button_image", turn, game);
-
-
                 board                     = game.add.sprite(game.world.centerX, game.world.centerY, 'board_image');
-                logo                      = game.add.sprite(275, 200,'logo_image');
                 popup_background          = game.add.sprite(220, 220,'popup_background_image');
-                
                 roll_button               = game.add.button(465, 725, 'dice_roll_button_image', turn, game);
                 presentation_button       = game.add.button(400, 500, 'go_to_presentation_button_image', go_to_presentations, game); 
-                next_round_button         = game.add.button(430, 600, "next_round_button_image", turn, game);
+                next_round_button         = game.add.button(430, 600, "next_round_button_image", next_round, game);
                 current_team_text         = game.add.text(300, 250, "");
                 current_roll_value_text   = game.add.text(500, 500, "");
                 current_tile_text         = game.add.text(230,  590, "", game_info.surprise_card_text_box_style);
@@ -158,8 +149,6 @@ var board_state = {
                 presentation_button.visible = false;
                 next_round_button.visible   = false;
 
-
-                logo.scale.setTo(0.3,0.3);
                 board.anchor.setTo(0.5, 0.5);
 
                 // Create the correct number of piece controllers
