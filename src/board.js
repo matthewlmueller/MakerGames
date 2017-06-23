@@ -129,6 +129,7 @@ function go_to_presentations(){
 function next_round () {
     presentation_button.visible = false;
     next_round_button.visible   = false;
+    update_popup(); 
     roll_button.visible         = true;
 }
 
