@@ -23,12 +23,15 @@ var suprise_text;
 var logo;
 var roll_button;
 
-var presentation_time = 0;
+var presentation_prep_time = 0;
+var presentation_time      = 0;
 
-game.state.add('load',    load_state);
-game.state.add('menu',    menu_state);
-game.state.add('board',   board_state);
-game.state.add('presentation_menu', presentation_menu_state);
-game.state.add('presentation', presentation_state);
+game.state.add('load',                   load_state);
+game.state.add('menu',                   menu_state);
+game.state.add('board',                  board_state);
+game.state.add('presentation_prep_menu', presentation_prep_menu_state);
+game.state.add('presentation_prep',      presentation_prep_state);
+game.state.add ('presentation_menu',     presentation_menu_state);
+game.state.add('presentation',           presentation_state);
 
 game.state.start('load');

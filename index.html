@@ -6,10 +6,13 @@
         <script src = "/lib/phaser.min.js"></script>
         <script src = "/lib/jquery-3.1.1.min.js"></script>
         <script src = "/src/game_info.js"></script>
+
         <script src = "/src/piece.js"></script>
         <script src = "/src/load.js"></script>
-        <script src="/src/menu.js"></script> 
+        <script src = "/src/main_menu.js"></script> 
         <script src = "/src/board.js"></script>
+        <script src = "/src/presentation_prep_menu.js"></script>
+        <script src = "/src/presentation_prep.js"></script>
         <script src = "/src/presentation_menu.js"></script>
         <script src = "/src/presentation.js"></script>
         <script src = "/src/game.js"></script>
@@ -67,9 +70,9 @@
             </select>
         </div>    
 
-        <div id = "presentation_length_div">
+        <div id = "presentation_prep_time_div">
             <p> Time Until Presentations </p>
-            <select id = "presentation_length_selection">
+            <select id = "presentation_prep_time_selection">
                 <option value="0">-</option>
                 <option value="0.05">DEBUG</option>
                 <option value="5">5 minutes</option>
@@ -80,6 +83,20 @@
                 <option value="15">15 minutes</option>
             </select>
         </div>    
+
+        <div id = "presentation_time_div">
+            <p> Time For Each Presentation </p>
+            <select id = "presentation_time_selection">
+                <option value="0">-</option>
+                <option value="0.05">DEBUG</option>
+                <option value="5">1 minute 30 seconds </option>
+                <option value="7">2 minutes</option>
+                <option value="9">2 minutes 30 seconds</option>
+                <option value="11">3 minutes</option>
+                <option value="13">3 minutes 30 seconds</option>
+                <option value="15">4 minutes</option>
+            </select>
+        </div>
 
         <div id="game_canvas"></div>
 

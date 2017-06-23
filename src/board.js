@@ -6,12 +6,6 @@ function hide_menu_show_game() {
         $("#game_canvas").show();
 }
 
-
-
-function get_display_tile_text(){
-
-}
-
 function turn(){
         timer       = game.time.create();
         timer_event = timer.add(Phaser.Timer.MINUTE * turn_length, end_of_turn, game);
@@ -123,7 +117,7 @@ function end_of_round () {
 
 
 function go_to_presentations(){
-        game.state.start('presentation_menu');
+        game.state.start('presentation_prep_menu');
 }
 
 function next_round () {
