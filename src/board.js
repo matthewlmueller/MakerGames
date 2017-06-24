@@ -49,7 +49,8 @@ function format_time (game_time){
         var minutes            = Math.floor(total_time_seconds / 60);
         var seconds            = Math.floor(total_time_seconds) - (60 * minutes);
         var time_string        = (minutes < 10) ? "0" + minutes : minutes; 
-        time_string            += (seconds < 10) ? ":0" + seconds : ":" + seconds; 
+        time_string            += (seconds < 10) ? ":0" + seconds : ":" + seconds;
+        console.log(time_string); 
         return time_string
 };
 
