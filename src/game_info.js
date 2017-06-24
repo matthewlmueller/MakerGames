@@ -9,7 +9,7 @@
 
 // Constructor for game_info object
 function Game_info () {
-        this.board_image   = "/assets/images/board.jpg";
+        this.board_image   = "assets/images/board.jpg";
         this.board_x_size  = 1000;
         this.board_y_size  = 1000;
         this.board_tiles   = [
@@ -498,19 +498,19 @@ function Game_info () {
         ]
 
         // Piece Images
-        this.piece_1_image = "/assets/images/pieces/piece1.png";
-        this.piece_2_image = "/assets/images/pieces/piece2.png";
-        this.piece_3_image = "/assets/images/pieces/piece3.png";
-        this.piece_4_image = "/assets/images/pieces/piece4.png";
-        this.piece_5_image = "/assets/images/pieces/piece5.png";
-        this.piece_6_image = "/assets/images/pieces/piece6.png";
+        this.piece_1_image = "assets/images/pieces/piece1.png";
+        this.piece_2_image = "assets/images/pieces/piece2.png";
+        this.piece_3_image = "assets/images/pieces/piece3.png";
+        this.piece_4_image = "assets/images/pieces/piece4.png";
+        this.piece_5_image = "assets/images/pieces/piece5.png";
+        this.piece_6_image = "assets/images/pieces/piece6.png";
 
         // Other Images
-        this.logo_image                      = "/assets/images/logo.png";
-        this.dice_roll_button_image          = "/assets/images/popup/roll_button.png"; 
-        this.popup_background_image          = "/assets/images/popup/popup_background.png";
-        this.go_to_presentation_button_image = "/assets/images/popup/go_to_presentation_button.png";
-        this.next_round_button_image         ="/assets/images/popup/next_round_button.png";
+        this.logo_image                      = "assets/images/logo.png";
+        this.dice_roll_button_image          = "assets/images/popup/roll_button.png"; 
+        this.popup_background_image          = "assets/images/popup/popup_background.png";
+        this.go_to_presentation_button_image = "assets/images/popup/go_to_presentation_button.png";
+        this.next_round_button_image         = "assets/images/popup/next_round_button.png";
         
         
 
